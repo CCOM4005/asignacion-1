@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -38,6 +39,26 @@ class linked_list
         }
     }
 
+    void counter()
+    {
+        node *current = head;
+        int counter = 1;
+        while(current->link != NULL)
+        {
+            if(current->data == current->link->data)
+            {
+                counter++;
+            }
+            else
+            {
+                cout << "El " << current->data << " - se repite " << counter << ((counter == 1) ? " vez" : " veces") << endl;
+                counter = 1;
+            }
+            current = current->link;
+        }
+        cout << "El " << current->data << " - se repite " << counter << ((counter == 1) ? " vez" : " veces") << endl;
+    }
+
     void print_list()
     {
         node *current = head;
@@ -72,6 +93,7 @@ int main(int argc, char const *argv[])
     list.insert_node(1);
     list.insert_node(69);
     list.print_list();
+    list.counter();
 
     return 0;
 }
