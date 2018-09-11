@@ -60,10 +60,12 @@ class linked_list
                 cout << "El " << current->data << " - se repite " << counter << ((counter == 1) ? " vez" : " veces") << endl;
                 counter = 0;
             }
+            else
+            {
+                cout << "El " << current->data << " - se repite " << counter << ((counter == 1) ? " vez" : " veces") << endl;
+            }
             current = current->link;
         }
-        if (counter != 0)
-            cout << "El " << current->data << " - se repite " << counter << ((counter == 1) ? " vez" : " veces") << endl;
     }
 
     void print_list()
@@ -82,7 +84,7 @@ int main(int argc, char const *argv[])
     linked_list list;
     int n = 0;
 
-    cout << "Entra una lista de numeros" << endl;
+    cout << "Entra una lista de numeros (para terminar entra -4005)" << endl;
     cin >> n;
     while (n != -4005)
     {
