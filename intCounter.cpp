@@ -1,3 +1,11 @@
+//
+//  main.cpp
+//  intCounter
+//
+//  Created by Jonathan  Nieves on 9/10/18.
+//  Copyright © 2018 Firebits. All rights reserved.
+//
+
 #include <iostream>
 
 using namespace std;
@@ -28,8 +36,7 @@ class linked_list
         else
         {
             node *current = head;
-            node *next = current->link;
-            while(current->link != NULL && current->link->data < n)
+            while (current->link != NULL && current->link->data < n)
             {
                 current = current->link;
             }
@@ -41,21 +48,22 @@ class linked_list
     void counter()
     {
         node *current = head;
-        int counter = 1;
-        while(current->link != NULL)
+        int counter = 0;
+        while (current->link != NULL)
         {
-            if(current->data == current->link->data)
+            if (current->data == current->link->data)
             {
                 counter++;
             }
-            else
+            else if (current->data != current->link->data && counter != 0)
             {
                 cout << "El " << current->data << " - se repite " << counter << ((counter == 1) ? " vez" : " veces") << endl;
-                counter = 1;
+                counter = 0;
             }
             current = current->link;
         }
-        cout << "El " << current->data << " - se repite " << counter << ((counter == 1) ? " vez" : " veces") << endl;
+        if (counter != 0)
+            cout << "El " << current->data << " - se repite " << counter << ((counter == 1) ? " vez" : " veces") << endl;
     }
 
     void print_list()
@@ -72,25 +80,16 @@ class linked_list
 int main(int argc, char const *argv[])
 {
     linked_list list;
-    list.insert_node(4);
-    list.insert_node(6);
-    list.insert_node(1);
-    list.insert_node(69);
-    list.insert_node(7);
-    list.insert_node(100);
-    list.insert_node(53);
-    list.insert_node(4);
-    list.insert_node(1);
-    list.insert_node(69);
-    list.insert_node(100);
-    list.insert_node(100);
-    list.insert_node(53);
-    list.insert_node(4);
-    list.insert_node(1);
-    list.insert_node(69);
-    list.insert_node(100);
-    list.insert_node(1);
-    list.insert_node(69);
+    int n = 0;
+
+    cout << "Entra una lista de numeros" << endl;
+    cin >> n;
+    while (n != -4005)
+    {
+        cin >> n;
+        list.insert_node(n);
+    }
+    
     list.print_list();
     list.counter();
 
