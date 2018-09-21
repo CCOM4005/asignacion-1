@@ -1,0 +1,8 @@
+step 1: Start the program
+step 2: Request input from user -> I/O
+step 3: Get input from user -> I/O
+step 4: Evaluate user input in loop condition -> condition/procedure
+step 5: If condition is TRUE, add number to list and request value again from user
+step 6: If condition is FALSE, count the repeated number in the list
+step 7: Display the results
+step 8: Stop the program
